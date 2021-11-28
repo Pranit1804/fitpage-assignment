@@ -48,7 +48,11 @@ class _HomepageState extends State<Homepage> {
         child: Consumer<HomeProvider>(
           builder: (ctx, data, _) {
             if (connectionState == ConnectionState.active) {
-              return Container();
+              return Container(
+                child: Center(
+                  child: CircularProgressIndicator(),
+                ),
+              );
             } else if (connectionState == ConnectionState.done &&
                 data.homeData != null &&
                 data.homeData.length > 0) {
